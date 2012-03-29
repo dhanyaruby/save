@@ -1,0 +1,17 @@
+<%= form_for(@training_batch) do |f| %>
+  <% if @training_batch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@training_batch.errors.count, "error") %> prohibited this training_batch from being saved:</h2>
+
+      <ul>
+      <% @training_batch.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

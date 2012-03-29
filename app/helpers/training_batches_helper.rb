@@ -1,0 +1,2 @@
+module TrainingBatchesHelper
+end
