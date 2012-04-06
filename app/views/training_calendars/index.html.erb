@@ -1,0 +1,21 @@
+<h1>Listing training_calendars</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @training_calendars.each do |training_calendar| %>
+  <tr>
+    <td><%= link_to 'Show', training_calendar %></td>
+    <td><%= link_to 'Edit', edit_training_calendar_path(training_calendar) %></td>
+    <td><%= link_to 'Destroy', training_calendar, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Training calendar', new_training_calendar_path %>

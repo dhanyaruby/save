@@ -1,4 +1,6 @@
 Save::Application.routes.draw do
+  resources :training_calendars
+
   resources :users
 
   resource :dashboard

@@ -1,0 +1,17 @@
+<%= form_for(@training_calendar) do |f| %>
+  <% if @training_calendar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@training_calendar.errors.count, "error") %> prohibited this training_calendar from being saved:</h2>
+
+      <ul>
+      <% @training_calendar.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
