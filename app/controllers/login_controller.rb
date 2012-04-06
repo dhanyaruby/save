@@ -1,6 +1,7 @@
 class LoginController < ApplicationController
 
   layout "login", :only => [:show, :create]
+  skip_before_filter :check_if_authenticated
 
   def show
     respond_to do |format|
