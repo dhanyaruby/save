@@ -2,7 +2,7 @@ class CreateParticipants < ActiveRecord::Migration
 
   def up
     create_table :participants do |t|
-      t.name
+      t.string :name
       t.string :address_line_1
       t.string :address_line_2
       t.string :address_line_3

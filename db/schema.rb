@@ -10,12 +10,61 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120329063803) do
+ActiveRecord::Schema.define(:version => 20120329064206) do
+
+  create_table "participants", :force => true do |t|
+    t.string   "name"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "address_line_3"
+    t.string   "address_line_4"
+    t.string   "village"
+    t.string   "district"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "pin_code"
+    t.string   "status"
+    t.text     "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "programs", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "training_batches", :force => true do |t|
+    t.string   "course"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "training_centers", :force => true do |t|
+    t.string   "name"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "address_line_3"
+    t.string   "address_line_4"
+    t.string   "village"
+    t.string   "district"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "pin_code"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "user_name"
+    t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

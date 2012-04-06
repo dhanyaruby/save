@@ -1,0 +1,38 @@
+<br/>
+<br/>
+<br/>
+<div class="container">
+  <div class="page-header">
+    <h1> Deployment Administration System</h1>
+  </div>
+
+  <%= form_tag('/login', :class => "well") do %>
+
+      <% unless @error.nil? %>
+          <div class="row">
+            <div class="span5">
+              <strong class="alert alert-error"><%= @error %></strong>
+            </div>
+          </div>
+      <% end %>
+      <br/>
+      <div class="row">
+        <div class="span5">
+          <label><strong>User</strong></label>
+          <input type="text" class="span3" name="user_name" placeholder="Type your user name…">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span5">
+          <label><strong>Password</strong></label>
+          <input type="password" class="span3" name="password" placeholder="Type your password…">
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= submit_tag 'Log In', :class => "btn-large btn-primary" %>
+      </div>
+  <% end %>
+
+</div>

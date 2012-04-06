@@ -1,6 +1,8 @@
 Save::Application.routes.draw do
   resources :users
 
+  resource :dashboard
+
   resources :participants
 
   resources :training_batches
@@ -58,7 +60,12 @@ Save::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'login#show'
+
+  match 'login' => 'login#create', :via => :post
+  
+  match 'logout' => 'login#destroy', :via => :get
+
 
   # See how all your routes lay out with "rake routes"
 
