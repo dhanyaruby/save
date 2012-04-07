@@ -7,3 +7,7 @@
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
 
 User.create([:user_name => 'root', :password => 'dat-root'])
+
+TrainingCenter.create([:name => 'training-center-1', :district =>'district-1', :state =>'Kerala', :pin_code => 560075])
+
+Course.create([:name => "Fabric Painting", :duration_in_days => 45])
