@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120329064206) do
+ActiveRecord::Schema.define(:version => 20120406194600) do
+
+  create_table "courses", :force => true do |t|
+    t.string   "name"
+    t.integer  "duration_in_days"
+    t.integer  "theory_duration"
+    t.integer  "practicals_duration"
+    t.text     "special_instructions"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "participants", :force => true do |t|
     t.string   "name"
@@ -37,11 +47,12 @@ ActiveRecord::Schema.define(:version => 20120329064206) do
     t.datetime "updated_at"
   end
 
-  create_table "training_batches", :force => true do |t|
-    t.string   "course"
+  create_table "training_calendars", :force => true do |t|
+    t.string   "training_center_id"
+    t.string   "course_id"
     t.date     "start_date"
     t.date     "end_date"
-    t.string   "status"
+    t.integer  "batch_size"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20120329064206) do
     t.string   "country"
     t.integer  "pin_code"
     t.string   "status"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

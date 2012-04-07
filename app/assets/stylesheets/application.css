@@ -5,3 +5,12 @@
  *= require_self
  *= require_tree . 
 */
+
+.menu-offset {
+    margin-left: 30px;
+}
+
+.logout-offset {
+    margin-left: 220px;
+}
+

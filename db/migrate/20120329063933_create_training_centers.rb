@@ -13,6 +13,7 @@ class CreateTrainingCenters < ActiveRecord::Migration
       t.string :country
       t.integer :pin_code
       t.string :status
+      t.text :description
       t.timestamps
     end
   end
