@@ -25,7 +25,6 @@ class TrainingCalendarsController < ApplicationController
   # GET /training_calendars/new.json
   def new
     @training_calendar = TrainingCalendar.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @training_calendar }
