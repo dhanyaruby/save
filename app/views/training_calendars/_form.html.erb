@@ -1,10 +1,11 @@
-<%= form_for(@training_calendar, :html => {:class => "well form-horizontal"}) do |f| %>
+<%= form_for(@training_calendar, :html => {:class => "well form-horizontal"}) do |form| %>
     <fieldset>
       <% if @training_calendar.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@training_calendar.errors.count, "error") %> prohibited this training_calendar from being
-              saved:</h2>
-
+          <div id="error_explanation" class="well-small alert alert-error">
+            <h4>
+              <%= pluralize(@training_calendar.errors.count, "error") %>
+              prevented this training calendar from being saved:
+            </h4>
             <ul>
               <% @training_calendar.errors.full_messages.each do |msg| %>
                   <li><%= msg %></li>
@@ -17,13 +18,8 @@
         <label class="control-label" for="select01">Select Training Center</label>
 
         <div class="controls">
-          <select id="select01" class="input-xlarge">
-            <option>something</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
+          <%= form.select("training_center_id", @training_centers.collect { |center| [center.label, center.id] },
+                          {:include_blank => true}, {:class => "input-xxlarge"}) %>
         </div>
       </div>
 
@@ -31,13 +27,8 @@
         <label class="control-label" for="select01">Select Course</label>
 
         <div class="controls">
-          <select id="select02" class="input-xlarge">
-            <option>something</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
+          <%= form.select("course_id", @courses.collect { |course| [course.label, course.id] },
+                          {:include_blank => true}, {:class => "input-xxlarge"}) %>
         </div>
       </div>
 
@@ -45,26 +36,25 @@
         <label class="control-label" for="input01">Batch Size</label>
 
         <div class="controls">
-          <input type="text" class="input-mini" id="input01">
+          <%= form.text_field(:batch_size, {:class => "input-mini"}) %>
         </div>
       </div>
 
       <div class="control-group">
-        <label class="control-label" for="input01">Starts on</label>
+        <label class="control-label" for="input01">Starting on</label>
 
         <div class="controls">
-          <input data-datepicker="datepicker" class="small" type="text" value=""/> Ends on
-          <input data-datepicker="datepicker" class="small" type="text" value=""/>
-            <span class="help-block">
-              Dates are of the format <strong>MM/DD/YYYY</strong> 
-            </span>
+          <%= form.text_field(:start_date, {"class "=>"small", "data-datepicker" => "datepicker"}) %> Ending on
+          <%= form.text_field(:end_date, {"class "=>"small", "data-datepicker" => "datepicker"}) %>
+          <span class="help-block"> Dates are in <strong>MM/DD/YYYY</strong> format </span>
         </div>
       </div>
 
+      <span class="help-block"> All fields are mandatory</span>
 
       <div class="form-actions">
-        <%= f.submit("Save Calendar", :class => "btn btn-primary") %>
-        <button class="btn">Cancel</button>
+        <%= form.submit("Save Calendar", {"class"=> "btn btn-primary"}) %>
+        <%= link_to 'Cancel', training_calendars_path, :class => "btn btn-inverse" %>
       </div>
     </fieldset>
 <% end %>

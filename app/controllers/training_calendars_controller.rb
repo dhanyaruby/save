@@ -24,6 +24,7 @@ class TrainingCalendarsController < ApplicationController
   # GET /training_calendars/new
   # GET /training_calendars/new.json
   def new
+    load_dependents
     @training_calendar = TrainingCalendar.new
     respond_to do |format|
       format.html # new.html.erb
@@ -46,6 +47,7 @@ class TrainingCalendarsController < ApplicationController
         format.html { redirect_to @training_calendar, :notice => 'Training calendar was successfully created.' }
         format.json { render :json => @training_calendar, :status => :created, :location => @training_calendar }
       else
+        load_dependents
         format.html { render :action => "new" }
         format.json { render :json => @training_calendar.errors, :status => :unprocessable_entity }
       end
@@ -78,5 +80,10 @@ class TrainingCalendarsController < ApplicationController
       format.html { redirect_to training_calendars_url }
       format.json { head :ok }
     end
+  end
+
+  def load_dependents
+    @training_centers = TrainingCenter.all
+    @courses          = Course.all
   end
 end
