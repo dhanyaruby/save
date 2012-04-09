@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+<% unless notice.nil? then %>
+    <div id="notice" class="alert alert-success">
+      <%= notice %> <a class="close" data-dismiss="alert" href="#">&times;</a>
+    </div>
+<% end %>
+
 
 
 <%= link_to 'Edit', edit_training_calendar_path(@training_calendar) %> |
