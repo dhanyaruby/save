@@ -1,15 +1,15 @@
 Save::Application.routes.draw do
   resources :courses
 
-  resources :training_calendars
+  resources :training_calendars do
+    resources :trainee_batches
+  end
 
   resources :users
 
   resource :dashboard
 
   resources :participants
-
-  resources :training_batches
 
   resources :training_centers
 
@@ -67,7 +67,7 @@ Save::Application.routes.draw do
   root :to => 'login#show'
 
   match 'login' => 'login#create', :via => :post
-  
+
   match 'logout' => 'login#destroy', :via => :get
 
 

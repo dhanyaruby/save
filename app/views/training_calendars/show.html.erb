@@ -64,7 +64,6 @@
   </fieldset>
 </div>
 
-
-
 <%= link_to 'Edit', edit_training_calendar_path(@training_calendar) %> |
+<%= link_to 'Assign Participants', training_calendar_trainee_batch_path(@training_calendar, @training_calendar.trainee_batch) %> |
 <%= link_to 'Back', training_calendars_path %>
