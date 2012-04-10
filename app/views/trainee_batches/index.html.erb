@@ -1,0 +1,21 @@
+<h1>Listing trainee_batches</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @trainee_batches.each do |trainee_batch| %>
+  <tr>
+    <td><%= link_to 'Show', trainee_batch %></td>
+    <td><%= link_to 'Edit', edit_trainee_batch_path(trainee_batch) %></td>
+    <td><%= link_to 'Destroy', trainee_batch, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Trainee batch', new_trainee_batch_path %>
