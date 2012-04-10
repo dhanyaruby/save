@@ -19,7 +19,7 @@
 
         <div class="controls">
           <%= form.select("training_center_id", @training_centers.collect { |center| [center.label, center.id] },
-                          {:include_blank => true}, {:class => "input-xxlarge"}) %>
+                          {:include_blank => true}, {:class => "input-xlarge"}) %>
         </div>
       </div>
 
@@ -28,7 +28,7 @@
 
         <div class="controls">
           <%= form.select("course_id", @courses.collect { |course| [course.label, course.id] },
-                          {:include_blank => true}, {:class => "input-xxlarge"}) %>
+                          {:include_blank => true}, {:class => "input-xlarge"}) %>
         </div>
       </div>
 
@@ -44,7 +44,14 @@
         <label class="control-label" for="input01">Starting on</label>
 
         <div class="controls">
-          <%= form.text_field(:start_date, {"class "=>"small", "data-datepicker" => "datepicker"}) %> Ending on
+          <%= form.text_field(:start_date, {"class "=>"small", "data-datepicker" => "datepicker"}) %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="input01">Ending on</label>
+
+        <div class="controls">
           <%= form.text_field(:end_date, {"class "=>"small", "data-datepicker" => "datepicker"}) %>
           <span class="help-block"> Dates are in <strong>MM/DD/YYYY</strong> format </span>
         </div>

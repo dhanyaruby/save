@@ -1,4 +1,10 @@
-<h1>Editing training_calendar</h1>
+<div class="page-header">
+  <h3>Editing Calendar for <%= @training_calendar.training_center.label %></h3>
+</div>
+
+<div class="alert alert-info">
+  <span>This training is of the status : <strong><%= @training_calendar.status %></strong></span>
+</div>
 
 <%= render 'form' %>
 

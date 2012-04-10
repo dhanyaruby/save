@@ -5,6 +5,72 @@
 <% end %>
 
 
+<div class="well form-horizontal">
+  <fieldset>
+    <legend>Calendar for <%= @training_calendar.training_center.label %></legend>
+    <div class="control-group">
+      <label class="control-label" for="select01">Training Center</label>
+
+      <div class="controls">
+        <label class="control-label" for="select01">
+          <%= link_to(@training_calendar.training_center.name, @training_calendar.training_center) %>
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Course</label>
+
+      <div class="controls">
+        <label class="control-label">
+          <%= link_to(@training_calendar.course.name, @training_calendar.course) %>
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Batch Size</label>
+
+      <div class="controls">
+        <label class="control-label">
+          <%= @training_calendar.batch_size %>
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Start Date</label>
+
+      <div class="controls">
+        <label class="control-label">
+          <%= @training_calendar.start_date %>
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">End Date</label>
+
+      <div class="controls">
+        <label class="control-label">
+          <%= @training_calendar.end_date %>
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Status</label>
+
+      <div class="controls">
+        <label class="control-label">
+          <%= @training_calendar.status %>
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
 
 <%= link_to 'Edit', edit_training_calendar_path(@training_calendar) %> |
 <%= link_to 'Back', training_calendars_path %>

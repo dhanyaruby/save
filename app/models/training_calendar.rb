@@ -4,5 +4,8 @@ class TrainingCalendar < ActiveRecord::Base
 
   validates_presence_of :training_center_id, :course_id, :batch_size, :start_date, :end_date
   validates_numericality_of :batch_size
-  
+
+  def status
+    "Not Started"
+  end
 end

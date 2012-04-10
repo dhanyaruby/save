@@ -34,6 +34,7 @@ class TrainingCalendarsController < ApplicationController
 
   # GET /training_calendars/1/edit
   def edit
+    load_dependents
     @training_calendar = TrainingCalendar.find(params[:id])
   end
 
