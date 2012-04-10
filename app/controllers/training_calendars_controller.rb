@@ -42,7 +42,7 @@ class TrainingCalendarsController < ApplicationController
   # POST /training_calendars.json
   def create
     @training_calendar = TrainingCalendar.new(params[:training_calendar])
-
+    @training_calendar.status = TrainingCalendar.NOT_STARTED
     respond_to do |format|
       if @training_calendar.save
         format.html { redirect_to @training_calendar, :notice => 'Training calendar was successfully created.' }

@@ -4,6 +4,9 @@
     </div>
 <% end %>
 
+<div class="alert alert-info">
+  <span>The status of this training : <strong><%= @training_calendar.status_message %></strong></span>
+</div>
 
 <div class="well form-horizontal">
   <fieldset>
@@ -58,15 +61,6 @@
       </div>
     </div>
 
-    <div class="control-group">
-      <label class="control-label">Status</label>
-
-      <div class="controls">
-        <label class="control-label">
-          <%= @training_calendar.status %>
-        </label>
-      </div>
-    </div>
   </fieldset>
 </div>
 
