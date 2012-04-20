@@ -6,6 +6,7 @@ class ModifyParticipants < ActiveRecord::Migration
     add_column "participants", "village_id", "string"
     add_column "participants", "date_of_birth", "date"
     add_column "participants", "age", "integer"
+    add_column "participants", "gender", "string"
     remove_column "participants", "name"
     remove_column "participants", "village"
     remove_column "participants", "district"
@@ -17,6 +18,7 @@ class ModifyParticipants < ActiveRecord::Migration
   def down
     remove_column "participants", "date_of_birth"
     remove_column "participants", "age"
+    remove_column "participants", "gender"
     remove_column "participants", "village_id"
     remove_column "participants", "first_name"
     remove_column "participants", "last_name"

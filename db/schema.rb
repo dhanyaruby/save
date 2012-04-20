@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20120420162256) do
     t.string   "village_id"
     t.date     "date_of_birth"
     t.integer  "age"
+    t.string   "gender"
   end
 
   create_table "programs", :force => true do |t|

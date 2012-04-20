@@ -32,6 +32,24 @@
       </div>
 
       <div class="control-group">
+        <label class="control-label" for="input01">Age</label>
+
+        <div class="controls">
+          <%= form.text_field(:age, {:class => "input-mini"}) %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="input01">Gender</label>
+
+        <div class="controls">
+          <%= form.select("gender", [["Female", "Female"], ["Male", "Male"]],
+                          {:class => "input-xlarge"}) %>
+
+        </div>
+      </div>
+
+      <div class="control-group">
         <label class="control-label" for="input01">Address Line 1</label>
 
         <div class="controls">
