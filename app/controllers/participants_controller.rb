@@ -24,8 +24,8 @@ class ParticipantsController < ApplicationController
   # GET /participants/new
   # GET /participants/new.json
   def new
-    @participant = Participant.new
     load_dependencies
+    @participant = Participant.new
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @participant }
@@ -45,12 +45,13 @@ class ParticipantsController < ApplicationController
   # POST /participants.json
   def create
     @participant = Participant.new(params[:participant])
-
+    @participant.activate_now
     respond_to do |format|
       if @participant.save
         format.html { redirect_to @participant, :notice => 'Participant was successfully created.' }
         format.json { render :json => @participant, :status => :created, :location => @participant }
       else
+        load_dependencies
         format.html { render :action => "new" }
         format.json { render :json => @participant.errors, :status => :unprocessable_entity }
       end
