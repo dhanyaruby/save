@@ -1,5 +1,80 @@
-<p id="notice"><%= notice %></p>
+<% unless notice.nil? then %>
+    <div id="notice" class="alert alert-success">
+      <%= notice %> <a class="close" data-dismiss="alert" href="#">&times;</a>
+    </div>
+<% end %>
 
+<div class="well form-horizontal">
+  <fieldset>
+    <legend>Details for <%= @participant.first_name %>,<%= @participant.last_name %></legend>
+
+    <div class="control-group">
+      <label class="control-label">First name</label>
+
+      <div class="controls">
+        <label class="control-label">
+          <%= @participant.first_name %>
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Last name</label>
+
+      <div class="controls">
+        <label class="control-label">
+          <%= @participant.last_name %>
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Age</label>
+
+      <div class="controls">
+        <label class="control-label">
+          <%= @participant.age %>
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Gender</label>
+
+      <div class="controls">
+        <label class="control-label">
+          <%= @participant.gender %>
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Address</label>
+
+      <div class="controls">
+        <address>
+          <%= @participant.address_line_1 %>
+          <%= @participant.address_line_2 %>
+          <%= @participant.address_line_3 %>
+          <%= @participant.address_line_4 %>
+          <br/>
+          <%= @participant.pin_code %>
+          <br/>
+          <%= @participant.village.name %>
+          <br/>
+          <%= @participant.village.district.name %> District
+          <br/>
+          <%= @participant.village.district.state.name %>
+        </address>
+      </div>
+    </div>
+
+    <div class="alert alert-info">
+      <%= @participant.comments %>
+    </div>
+
+  </fieldset>
+</div>
 
 <%= link_to 'Edit', edit_participant_path(@participant) %> |
 <%= link_to 'Back', participants_path %>

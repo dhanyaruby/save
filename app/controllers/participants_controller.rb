@@ -39,6 +39,7 @@ class ParticipantsController < ApplicationController
   # GET /participants/1/edit
   def edit
     @participant = Participant.find(params[:id])
+    load_dependencies
   end
 
   # POST /participants
@@ -68,6 +69,7 @@ class ParticipantsController < ApplicationController
         format.html { redirect_to @participant, :notice => 'Participant was successfully updated.' }
         format.json { head :ok }
       else
+        load_dependencies
         format.html { render :action => "edit" }
         format.json { render :json => @participant.errors, :status => :unprocessable_entity }
       end
