@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120410170604) do
+ActiveRecord::Schema.define(:version => 20120420162256) do
 
   create_table "courses", :force => true do |t|
     t.string   "name"
@@ -22,21 +22,26 @@ ActiveRecord::Schema.define(:version => 20120410170604) do
     t.datetime "updated_at"
   end
 
+  create_table "districts", :force => true do |t|
+    t.string "name"
+    t.string "state_id"
+  end
+
   create_table "participants", :force => true do |t|
-    t.string   "name"
     t.string   "address_line_1"
     t.string   "address_line_2"
     t.string   "address_line_3"
     t.string   "address_line_4"
-    t.string   "village"
-    t.string   "district"
-    t.string   "state"
-    t.string   "country"
     t.integer  "pin_code"
     t.string   "status"
     t.text     "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "village_id"
+    t.date     "date_of_birth"
+    t.integer  "age"
   end
 
   create_table "programs", :force => true do |t|
@@ -45,6 +50,10 @@ ActiveRecord::Schema.define(:version => 20120410170604) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "states", :force => true do |t|
+    t.string "name"
   end
 
   create_table "trainee_batches", :force => true do |t|
@@ -87,6 +96,11 @@ ActiveRecord::Schema.define(:version => 20120410170604) do
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "villages", :force => true do |t|
+    t.string "name"
+    t.string "district_id"
   end
 
 end

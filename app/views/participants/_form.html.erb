@@ -1,17 +1,100 @@
-<%= form_for(@participant) do |f| %>
-  <% if @participant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@participant.errors.count, "error") %> prohibited this participant from being saved:</h2>
-
-      <ul>
-      <% @participant.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+<%= form_for(@participant, :html => {:class => "well form-horizontal"}) do |form| %>
+    <fieldset>
+      <% if @participant.errors.any? %>
+          <div id="error_explanation" class="well-small alert alert-error">
+            <h4>
+              <%= pluralize(@participant.errors.count, "error") %>
+              prevented this participant from being saved:
+            </h4>
+            <ul>
+              <% @participant.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+      <div class="control-group">
+        <label class="control-label" for="input01">First Name</label>
+
+        <div class="controls">
+          <%= form.text_field(:first_name, {:class => "input-large"}) %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="input01">Last Name</label>
+
+        <div class="controls">
+          <%= form.text_field(:last_name, {:class => "input-large"}) %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="input01">Address Line 1</label>
+
+        <div class="controls">
+          <%= form.text_field(:address_line_1, {:class => "input-large"}) %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="input01">Address Line 2</label>
+
+        <div class="controls">
+          <%= form.text_field(:address_line_2, {:class => "input-large"}) %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="input01">Address Line 3</label>
+
+        <div class="controls">
+          <%= form.text_field(:address_line_3, {:class => "input-large"}) %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="input01">Address Line 4</label>
+
+        <div class="controls">
+          <%= form.text_field(:address_line_4, {:class => "input-large"}) %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="select03">Village</label>
+
+        <div class="controls">
+          <%= form.select("village_id", @villages.collect { |village| [village.name, village.id] },
+                          {:include_blank => true}, {:class => "input-xlarge"}) %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="input01">Pin Code</label>
+
+        <div class="controls">
+          <%= form.text_field(:pin_code, {:class => "input-large"}) %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="input01">Comments</label>
+
+        <div class="controls">
+          <%= form.text_area(:comments, {:class => "input-large"}) %>
+        </div>
+      </div>
+
+
+      <span class="help-block"> All fields are mandatory</span>
+
+      <div class="form-actions">
+        <%= form.submit("Save Participant", {"class"=> "btn btn-primary"}) %>
+        <%= link_to 'Cancel', participants_path, :class => "btn btn-inverse" %>
+      </div>
+    </fieldset>
 <% end %>
+

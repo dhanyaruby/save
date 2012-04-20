@@ -25,11 +25,15 @@ class ParticipantsController < ApplicationController
   # GET /participants/new.json
   def new
     @participant = Participant.new
-
+    load_dependencies
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @participant }
     end
+  end
+
+  def load_dependencies
+    @villages = Village.all
   end
 
   # GET /participants/1/edit
