@@ -1,21 +1,26 @@
-<h1>Listing participants</h1>
+<div class="page-header">
+  <div class="row">
+    <div class="span4"><h3><span class="small">Participants</span></h3></div>
+    <%= link_to 'Add a new participant', new_participant_path, :class => "btn btn-primary" %>
+  </div>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+</div>
 
-<% @participants.each do |participant| %>
-  <tr>
-    <td><%= link_to 'Show', participant %></td>
-    <td><%= link_to 'Edit', edit_participant_path(participant) %></td>
-    <td><%= link_to 'Destroy', participant, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+  <th>#Id</th>
+  <th>First name</th>
+  <th>Actions</th>
+  </thead>
 
-<br />
+  <tbody>
+  <% @participants.each do |participant| %>
+      <tr>
+        <td><%= participant.id %></td>
+        <td><%= link_to (participant.first_name + " " + participant.last_name), participant %></td>
+        <td><%= link_to 'Edit', edit_participant_path(participant) %> |
+          <%= link_to 'Delete', participant, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+  <% end %>
+  </table>
 
-<%= link_to 'New Participant', new_participant_path %>
