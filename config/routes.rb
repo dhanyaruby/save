@@ -2,7 +2,7 @@ Save::Application.routes.draw do
   resources :courses
 
   resources :training_calendars do
-    resources :trainee_batches
+    resources :trainees
   end
 
   resources :users

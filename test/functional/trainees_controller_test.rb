@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TraineeBatchesControllerTest < ActionController::TestCase
+class TraineesControllerTest < ActionController::TestCase
   setup do
     @trainee_batch = trainee_batches(:one)
   end

@@ -18,8 +18,8 @@
       <tr>
         <td><%= participant.id %></td>
         <td><%= link_to (participant.first_name + " " + participant.last_name), participant %></td>
-        <td><%= link_to 'Edit', edit_participant_path(participant) %> |
-          <%= link_to 'Delete', participant, :confirm => 'Are you sure?', :method => :delete %></td>
+        <td><%= link_to 'Edit', edit_participant_path(participant) %>
+          | <%= link_to 'Delete', participant, :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
   <% end %>
   </table>

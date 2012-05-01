@@ -45,7 +45,6 @@ class TrainingCalendarsController < ApplicationController
     @training_calendar.status = TrainingCalendar::NOT_STARTED
     respond_to do |format|
       if @training_calendar.save
-        TraineeBatch.new(:training_calendar_id => @training_calendar.id).save
         format.html { redirect_to @training_calendar, :notice => 'Training calendar was successfully created.' }
         format.json { render :json => @training_calendar, :status => :created, :location => @training_calendar }
       else
@@ -60,7 +59,6 @@ class TrainingCalendarsController < ApplicationController
   # PUT /training_calendars/1.json
   def update
     @training_calendar = TrainingCalendar.find(params[:id])
-
     respond_to do |format|
       if @training_calendar.update_attributes(params[:training_calendar])
         format.html { redirect_to @training_calendar, :notice => 'Training calendar was successfully updated.' }

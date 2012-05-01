@@ -10,4 +10,8 @@ class Participant < ActiveRecord::Base
     self.status = "Active"
   end
 
+  def full_name
+    first_name + " " + last_name
+  end
+
 end
