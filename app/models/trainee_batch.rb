@@ -1,6 +1,6 @@
 class TraineeBatch
   include ActiveModel
-  extend ActiveModel::Naming
+  extend ActiveModel::Naming, ActiveModel::Translation
 
   attr_reader :errors
 
@@ -8,16 +8,23 @@ class TraineeBatch
     @participants         = participants
     @training_calendar_id = training_calendar
     @errors               = ActiveModel::Errors.new(self)
-    @faulty_participants = []
+  end
+
+  def create_trainee(participant, result)
+    trainee = Trainee.new({:participant_id => participant, :training_calendar_id => @training_calendar_id})
+    result  = trainee.save
+    unless result
+      trainee.errors.each do |attribute, errors_array|
+        errors[attribute] = errors_array
+      end
+    end
+    result
   end
 
   def save
-    result               = true
+    result = true
     @participants.each do |participant|
-      trainee = Trainee.new({:participant_id => participant, :training_calendar_id => @training_calendar_id})
-      unless trainee.save
-        @faulty_participants << participant
-      end
+      result = create_trainee(participant, result)
     end
     result
   end
