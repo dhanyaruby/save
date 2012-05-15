@@ -42,9 +42,8 @@ class TraineesController < ApplicationController
   def destroy
     @trainee = Trainee.find(params[:id])
     @trainee.destroy
-
     respond_to do |format|
-      format.html { redirect_to trainees_url }
+      format.html { redirect_to training_calendar_trainees_path(params[:training_calendar_id]), :notice => 'The participant was successfully removed.' }
       format.json { head :ok }
     end
   end
