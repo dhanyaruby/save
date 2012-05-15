@@ -9,4 +9,11 @@
 //= require_tree .
 
 $('.dropdown-toggle').dropdown();
+
 $(".alert").alert();
+
+$('#myModal').modal({
+    keyboard: false,
+    show : false
+});
+

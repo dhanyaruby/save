@@ -2,7 +2,7 @@ class TraineesController < ApplicationController
   # GET /trainees
   # GET /trainees.json
   def index
-    @trainees = Trainee.all
+    @trainees = Trainee.find_all_by_training_calendar_id(params[:training_calendar_id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,15 +40,14 @@ class TraineesController < ApplicationController
   # POST /trainees
   # POST /trainees.json
   def create
-    @trainee = Trainee.new(params[:trainee])
-
+    @trainees = TraineeBatch.new(params[:trainees][:ids], params[:training_calendar_id])
     respond_to do |format|
-      if @trainee.save
-        format.html { redirect_to @trainee, :notice => 'Trainee was successfully created.' }
-        format.json { render :json => @trainee, :status => :created, :location => @trainee }
+      if @trainees.save
+        format.html { redirect_to @trainees, :notice => 'The batch was successfully created.' }
+        format.json { render :json => @trainees, :status => :created, :location => @trainees }
       else
         format.html { render :action => "new" }
-        format.json { render :json => @trainee.errors, :status => :unprocessable_entity }
+        format.json { render :json => @trainees.errors, :status => :unprocessable_entity }
       end
     end
   end
