@@ -5,7 +5,6 @@ class Participant < ActiveRecord::Base
 
   belongs_to :village
 
-
   def activate_now
     self.status = "Active"
   end

@@ -13,4 +13,5 @@ class Trainee < ActiveRecord::Base
     participant.assign
   end
 
+
 end

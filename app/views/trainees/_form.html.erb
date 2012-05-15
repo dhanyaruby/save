@@ -2,9 +2,9 @@
 
     <fieldset>
       <% if @trainees.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@trainees.errors.count, "error") %> prohibited this trainee from being adding to this
-              batch:</h2>
+          <div id="error_explanation" class="well-small alert alert-error">
+            <h4><%= pluralize(@trainees.errors.count, "error") %> prohibited this trainee from being adding to this
+              batch:</h4>
             <ul>
               <% @trainees.errors.full_messages.each do |msg| %>
                   <li><%= msg %></li>
