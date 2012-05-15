@@ -20,32 +20,13 @@
   <tbody>
   <% @trainees.each do |trainee| %>
       <tr>
+        <td><%= trainee.id %></td>
         <td><%= trainee.full_name %></td>
+        <td>Remove</td>
       </tr>
   <% end %>
   </tbody>
 </table>
-
-<!--<div class="modal " id="myModal">-->
-  <!--<div class="modal-header">-->
-    <!--<button class="close" data-dismiss="modal">×</button>-->
-    <!--<h3>Find participants</h3>-->
-  <!--</div>-->
-
-  <!--<%= form_tag(training_calendar_trainees_path(params[:training_calendar_id])) do -%>-->
-      <!--<div class="modal-body">-->
-        <!--<div class="well">-->
-          <!--<label>Select participants by their full name:</label>-->
-          <!--<%= select("trainees", "id", Participant.all.collect { |p| [p.full_name, p.id] }, {:include_blank => false}, :multiple => "multiple") %>-->
-        <!--</div>-->
-
-      <!--</div>-->
-      <!--<div class="modal-footer">-->
-        <!--<a href="#" class="btn">Close</a>-->
-        <!--<%= submit_tag 'Add selected participants', :class => "btn btn-primary" %>-->
-      <!--</div>-->
-  <!--<% end -%>-->
-<!--</div>-->
 
 
 

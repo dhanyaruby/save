@@ -1,22 +1,24 @@
 <%= form_tag(training_calendar_trainees_path(params[:training_calendar_id]), :class => "well form-horizontal") do -%>
 
     <fieldset>
-      <% if @trainee.errors.any? %>
+      <% if @trainees.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(@trainee.errors.count, "error") %> prohibited this trainee from being adding to this
+            <h2><%= pluralize(@trainees.errors.count, "error") %> prohibited this trainee from being adding to this
               batch:</h2>
             <ul>
-              <% @trainee.errors.full_messages.each do |msg| %>
+              <% @trainees.errors.full_messages.each do |msg| %>
                   <li><%= msg %></li>
               <% end %>
             </ul>
           </div>
       <% end %>
 
-      
+      <label>Select participants by their full name:</label>
+      <%= select("participants", "ids", Participant.all.collect { |p| [p.full_name, p.id] }, {:include_blank => false}, :multiple => "multiple") %>
 
-      <div class="actions">
+      <div class="form-actions">
         <%= submit_tag 'Add selected participants', :class => "btn btn-primary" %>
+        <%= link_to 'Cancel', training_calendar_trainees_path(params[:training_calendar_id]), :class => "btn btn-inverse" %>
       </div>
     </fieldset>
 <% end %>
