@@ -82,6 +82,28 @@ class TrainingCalendarsController < ApplicationController
     end
   end
 
+  def start
+    change_training_status({:status => "In-Progress"})
+  end
+
+  def end
+    change_training_status({:status => "Ended"})
+  end
+
+  def change_training_status(attrs)
+    @training_calendar = TrainingCalendar.find(params[:id])
+    respond_to do |format|
+      if @training_calendar.update_attributes(attrs)
+        format.html { redirect_to @training_calendar }
+        format.json { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.json { render :json => @training_calendar.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+
   def load_dependents
     @training_centers = TrainingCenter.all
     @courses          = Course.all

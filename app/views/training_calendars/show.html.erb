@@ -66,4 +66,6 @@
 
 <%= link_to 'Edit', edit_training_calendar_path(@training_calendar) %> |
 <%= link_to 'Assign Trainees', training_calendar_trainees_path(@training_calendar) %> |
+<%= link_to 'Start Training', "/training_calendars/#{@training_calendar.id}/start" %> |
+<%= link_to 'End Training', "/training_calendars/#{@training_calendar.id}/end" %> |
 <%= link_to 'Back', training_calendars_path %>

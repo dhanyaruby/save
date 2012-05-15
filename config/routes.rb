@@ -4,6 +4,9 @@ Save::Application.routes.draw do
   resources :training_calendars do
     resources :trainees
   end
+  match 'training_calendars/:id/start' => 'training_calendars#start', :via => :get
+  match 'training_calendars/:id/end' => 'training_calendars#end', :via => :get
+
 
   resources :users
 
