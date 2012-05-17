@@ -14,7 +14,7 @@ class TrainingCalendarsController < ApplicationController
   # GET /training_calendars/1.json
   def show
     @training_calendar = TrainingCalendar.find(params[:id])
-
+    @trainees          = Trainee.find_all_by_training_calendar_id(@training_calendar.id)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @training_calendar }
