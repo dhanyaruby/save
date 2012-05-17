@@ -10,7 +10,8 @@
     <li><%= link_to 'Add Participants', new_training_calendar_trainee_path(@training_calendar) %></li>
     <li><%= link_to 'Start Training', "/training_calendars/#{@training_calendar.id}/start" %> </li>
     <li><%= link_to 'End Training', "/training_calendars/#{@training_calendar.id}/end" %> </li>
-    <li><%= link_to 'View all calendars', training_calendars_path %></li>
+    <li><%= link_to 'Track Attendance', "/training_calendars/#{@training_calendar.id}/attendance" %></li>
+    <li><%= link_to 'All Calendars', training_calendars_path %></li>
   </ul>
 </div>
 

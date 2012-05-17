@@ -90,6 +90,12 @@ class TrainingCalendarsController < ApplicationController
     change_training_status({:status => "Ended"})
   end
 
+  def attendance
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+  end
+
   def change_training_status(attrs)
     @training_calendar = TrainingCalendar.find(params[:id])
     respond_to do |format|

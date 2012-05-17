@@ -6,6 +6,7 @@ Save::Application.routes.draw do
   end
   match 'training_calendars/:id/start' => 'training_calendars#start', :via => :get
   match 'training_calendars/:id/end' => 'training_calendars#end', :via => :get
+  match 'training_calendars/:id/attendance' => 'training_calendars#attendance', :via => :get
 
 
   resources :users
