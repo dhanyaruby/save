@@ -91,6 +91,7 @@ class TrainingCalendarsController < ApplicationController
   end
 
   def attendance
+    @training_calendar = TrainingCalendar.find(params[:id])    
     respond_to do |format|
       format.html # index.html.erb
     end
