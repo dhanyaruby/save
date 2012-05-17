@@ -77,25 +77,5 @@
 </div>
 
 
-<div class="form-horizontal">
-  <fieldset>
-    <legend>Participants</legend>
-    <table class="table table-bordered table-striped table-condensed">
-      <thead>
-      <th>#Id</th>
-      <th>First name</th>
-      <th>Actions</th>
-      </thead>
-      <tbody>
-      <% @trainees.each do |trainee| %>
-          <tr>
-            <td><%= trainee.id %></td>
-            <td><%= trainee.full_name %></td>
-            <td>Remove</td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
-  </fieldset>
-</div>
+<%= render :partial => 'participants' %>
 

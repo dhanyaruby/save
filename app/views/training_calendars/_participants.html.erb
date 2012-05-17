@@ -1,0 +1,22 @@
+<div class="form-horizontal">
+  <fieldset>
+    <legend>Participants</legend>
+    <br/>
+    <table class="table table-bordered table-striped table-condensed">
+      <thead>
+      <th>#Id</th>
+      <th>First name</th>
+      <th>Actions</th>
+      </thead>
+      <tbody>
+      <% @trainees.each do |trainee| %>
+          <tr>
+            <td><%= trainee.id %></td>
+            <td><%= link_to(trainee.full_name, participant_path(trainee.participant_id)) %></td>
+            <td>Remove</td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </fieldset>
+</div>
