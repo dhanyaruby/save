@@ -28,7 +28,7 @@ class TraineesController < ApplicationController
     @trainees = TraineeBatch.new(params[:participants][:ids], params[:training_calendar_id])
     respond_to do |format|
       if @trainees.save
-        format.html { redirect_to training_calendar_trainees_path(params[:training_calendar_id]), :notice => 'The batch was successfully created.' }
+        format.html { redirect_to training_calendar_path(params[:training_calendar_id]), :notice => 'The participant(s) were successfully added.' }
         format.json { render :json => @trainees, :status => :created, :location => @trainees }
       else
         format.html { render :action => "new" }

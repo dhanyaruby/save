@@ -4,6 +4,18 @@
     </div>
 <% end %>
 
+<div class="subnav">
+  <ul class="nav nav-pills">
+    <li><%= link_to 'Edit', edit_training_calendar_path(@training_calendar) %></li>
+    <li><%= link_to 'Add Participants', new_training_calendar_trainee_path(@training_calendar) %></li>
+    <li><%= link_to 'Start Training', "/training_calendars/#{@training_calendar.id}/start" %> </li>
+    <li><%= link_to 'End Training', "/training_calendars/#{@training_calendar.id}/end" %> </li>
+    <li><%= link_to 'View all calendars', training_calendars_path %></li>
+  </ul>
+</div>
+
+<br/>
+
 <div class="alert alert-info">
   <span>The status of this training : <strong><%= @training_calendar.status_message %></strong></span>
 </div>
@@ -64,17 +76,11 @@
   </fieldset>
 </div>
 
-<%= link_to 'Edit', edit_training_calendar_path(@training_calendar) %> |
-<%= link_to 'Add Participants', training_calendar_trainees_path(@training_calendar) %> |
-<%= link_to 'Start Training', "/training_calendars/#{@training_calendar.id}/start" %> |
-<%= link_to 'End Training', "/training_calendars/#{@training_calendar.id}/end" %> |
-<%= link_to 'View all calendars', training_calendars_path %>
 
-<br/><br/><br/>
 <div class="form-horizontal">
   <fieldset>
     <legend>Participants</legend>
-    <table class="table table-bordered table-condensed">
+    <table class="table table-bordered table-striped table-condensed">
       <thead>
       <th>#Id</th>
       <th>First name</th>
